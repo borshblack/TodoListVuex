@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-checkbox v-for="(category, index) in categories"
+    <v-checkbox v-for="(category, index) in listCategories"
                 :key="index"
                 :label="category.type"
                 :value="category"
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'TodoCategories',
@@ -22,17 +23,12 @@ export default {
   data() {
     return {
       filterCategories: [],
-      categories: [{
-        id: 0,
-        type: 'Food',
-      }, {
-        id: 1,
-        type: 'Work',
-      }, {
-        id: 2,
-        type: 'School',
-      }],
     };
+  },
+  computed: {
+    ...mapState({
+      listCategories: 'enabledCategories',
+    }),
   },
   methods: {
     handleChangeCategories() {

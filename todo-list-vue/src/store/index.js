@@ -8,6 +8,16 @@ export default new Vuex.Store({
     tasks: [],
     categories: [],
     filterCategories: [],
+    enabledCategories: [{
+      id: 0,
+      type: 'Food',
+    }, {
+      id: 1,
+      type: 'Work',
+    }, {
+      id: 2,
+      type: 'School',
+    }],
   },
   getters: {
     tasksByCategories(state) {
